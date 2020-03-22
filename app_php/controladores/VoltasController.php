@@ -14,12 +14,12 @@
 		public function __construct($arquivo)
 		{
 			$this->service = new VoltasServices($arquivo);
-			$this->pilotoService = new PilotosServices();
+
+			$this->pilotoService = $this->service->pilotosService;
 		}
 
 		public function processaArquivo(){
-			var_dump($pilotoService->retornaPilotosPorPosicao());
-			return ['melhorVolta' => $this->service->getMelhorVolta(), 'pilotos' => $pilotoService->retornaPilotosPorPosicao()];
+			return ['melhorVolta' => $this->service->getMelhorVolta(), 'pilotos' => $this->pilotoService->retornaPilotosPorPosicao()];
 		}
 
 	}

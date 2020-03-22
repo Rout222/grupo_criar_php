@@ -17,7 +17,7 @@
 
         public function retornaPilotosPorPosicao()
         {
-            return $this->repository->getPilotosPorPosicao();    
+            return $this->getPilotosPorPosicao();    
         }
 
         public function retornaPilotos($voltas)

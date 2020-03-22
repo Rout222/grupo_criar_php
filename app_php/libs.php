@@ -1,4 +1,7 @@
 <?php
+
+	namespace LIBS;
+
 	function processa_arquivo($arquivo)
 	{
 

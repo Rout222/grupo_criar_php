@@ -5,11 +5,17 @@
 	use modelos\modelos;
 	
 	use repositorios\VoltasRepository;
+	use services\PilotosServices;
+	use interfaces\services\VoltaServiceInterface;
 
 	require_once('repositorios/VoltasRepository.php');
+	require_once('repositorios/PilotosRepository.php');
 	require_once('modelos/Volta.class.php');
+	require_once('./interfaces/services/VoltaServiceInterface.php');
+	
 
-	class VoltasServices
+
+	class VoltasServices implements VoltaServiceInterface
 	{
 	
         public $pilotosService;    

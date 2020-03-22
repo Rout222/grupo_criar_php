@@ -3,11 +3,12 @@
     namespace services;
 
     use repositorios\PilotosRepository;
+    use interfaces\services\PilotoServiceInterface;
 
     require_once('./repositorios/PilotosRepository.php');
+    require_once('./interfaces/services/PilotoServiceInterface.php');
 
-
-    class PilotosServices
+    class PilotosServices implements PilotoServiceInterface
     {
         private $repository;
 

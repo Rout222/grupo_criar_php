@@ -16,10 +16,13 @@
 		{
 
 			$voltasRepository 	= new VoltasRepository($arquivo);
-			$this->pilotos  	= $voltasRepository->instancia_do_piltosrepository->getPilotosPorPosicao();
+			$this->pilotos  	= $voltasRepository->pilotosRepository->getPilotosPorPosicao();
 			$this->melhor_volta = $voltasRepository->get_melhor_volta();
 		}
 
+		public function processa_arquivo(){
+			return [$this->pilotos, $this->melhor_volta];
+		}
 
 	}
 

@@ -3,8 +3,10 @@
   use \controladores\VoltasController;
 
   $voltasController = new VoltasController($_FILES);
+  $retorno = $voltasController->processa_arquivo();
+  $pilotos = $retorno[0];
+  $melhorvolta = $retorno[1];
 
-  var_dump($VoltasController);
 ?>
 	<!doctype html>
 	<html lang="en">

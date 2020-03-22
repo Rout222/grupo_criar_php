@@ -15,7 +15,7 @@
 			{
 				$this->erro = false;
 				$this->voltas = [];
-				$this->instancia_do_piltosrepository = new PilotosRepository(); # apenas para não perder os dados, já que não estou usando banco de dados;
+				$this->pilotosRepository = new PilotosRepository(); # apenas para não perder os dados, já que não estou usando banco de dados;
 
 				$tipo = $arquivo['file']['type']; # tipo do arquivo, se for .csv o delimitador deve ser um ';' , caso contrario deve ser uma tabulação.
 				$delimitador = ($tipo = 'text/csv') ? ';' : '\t' ;
@@ -53,7 +53,7 @@
 		private function processar_voltas()
 		{
 
-			$pilotosRepository = $this->instancia_do_piltosrepository;
+			$pilotosRepository = $this->pilotosRepository;
 
 			foreach ($this->voltas as $volta) { // processa cada volta
 				if (is_null($pilotosRepository->getPiloto($volta->id_piloto))){ // caso não tenha inserido nenhuma vez o piloto, insere ele com valores zerados
@@ -70,6 +70,7 @@
 
 		public function get_melhor_volta()
 		{
+			$pilotosRepository = $this->pilotosRepository;
 			$aux = $pilotosRepository->getPilotosPorPosicao();
 
 			usort($aux, function ($a, $b) { // ordena o array pelo tempo total gasto, considerando se ele terminou a corrida.

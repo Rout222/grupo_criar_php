@@ -1,0 +1,21 @@
+version: "3" 
+services:
+  # Web service layer
+  nginx:
+    image: nginx:1.13
+    volumes:
+      - "./app_php:/var/www/html"
+      - "./nginx/nginx.conf:/etc/nginx/nginx.conf"
+    ports:
+      - "80:80"
+    depends_on:
+      - php
+
+  # Application service layer
+  php:
+    build:
+      context: ./php
+    volumes:
+      - "./app_php:/var/www/html"
+    ports:
+      - "9000:9000"

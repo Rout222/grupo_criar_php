@@ -1,27 +1,25 @@
 <?php
 
 	namespace controladores;
-	USE modelos\MODELOS;
-	use repositorios\VoltasRepository;
-	require_once('./controladores/VoltasController.php');
-	require_once('./repositorios/VoltasRepository.php');
+	use services\VoltasServices;
+	use services\PilotosServices;
 
-	/**
-	 * Repositorio do objeto voltas
-	 */
+	require_once('./services/VoltasServices.php');
+	require_once('./services/PilotosServices.php');
+
 	class VoltasController
 	{
-
+		private $service;
+		
 		public function __construct($arquivo)
 		{
-
-			$voltasRepository 	= new VoltasRepository($arquivo);
-			$this->pilotos  	= $voltasRepository->pilotosRepository->getPilotosPorPosicao();
-			$this->melhor_volta = $voltasRepository->get_melhor_volta();
+			$this->service = new VoltasServices($arquivo);
+			$this->pilotoService = new PilotosServices();
 		}
 
-		public function processa_arquivo(){
-			return [$this->pilotos, $this->melhor_volta];
+		public function processaArquivo(){
+			var_dump($pilotoService->retornaPilotosPorPosicao());
+			return ['melhorVolta' => $this->service->getMelhorVolta(), 'pilotos' => $pilotoService->retornaPilotosPorPosicao()];
 		}
 
 	}

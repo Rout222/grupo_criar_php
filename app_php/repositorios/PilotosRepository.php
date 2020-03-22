@@ -14,8 +14,10 @@
 			$this->pilotos = [];
 		}
 
-		public function addToList($piloto)
+		public function addToList($id, $nome, $recorde)
 		{
+			$piloto = new modelos\Piloto($id, $nome, $recorde);
+
 			if(!isset($this->pilotos[$piloto->id]))
 				$this->pilotos[$piloto->id] = $piloto;
 			else
@@ -49,17 +51,7 @@
 			return $this->pilotos;
 		}
 
-		public function getPilotosPorPosicao(){
-			$aux = $this->pilotos;
-			usort($aux, function ($a, $b) { // ordena o array pelo tempo total gasto, considerando se ele terminou a corrida.
-				if (($a->voltas == 4 && $b->voltas == 4) ||  ($b->voltas == $a->voltas)) // caso os dois tenham terminado a corrida no mesmo round, compara o tempo gasto pelos 2
-			    	return $a->tempo <=> $b->tempo;
-			    else{ // caso os dois tenham terminados em voltas diferentes quem andou mais voltas é melhor do que quem andou menos volta.
-			    	return $b->voltas <=> $a->voltas;
-			    }
-			});
-			return $aux;
-		}
+		
 	}
 
 ?>

@@ -3,9 +3,9 @@
   use \controladores\VoltasController;
 
   $voltasController = new VoltasController($_FILES);
-  $retorno = $voltasController->processa_arquivo();
-  $pilotos = $retorno[0];
-  $melhorvolta = $retorno[1];
+  $retorno = $voltasController->processaArquivo();
+  $pilotos = $retorno['pilotos'];
+  $melhorvolta = $retorno['melhorVolta'];
 
 ?>
 	<!doctype html>

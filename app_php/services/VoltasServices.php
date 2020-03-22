@@ -44,7 +44,6 @@
 							 return false;
 						 continue;
 					 } 
-					 $volta = [];
 					 if(sizeof($linha) == sizeof($cabecalho)){ # caso a linha tenha o mesmo tamanho que o cabecalho processa a linha
 						$validos++;
 						$this->voltas[] = $this->repository->addVolta($linha);

@@ -28,7 +28,8 @@
 			$this->voltas = [];
 
 			$tipo = $arquivo['file']['type']; # tipo do arquivo, se for .csv o delimitador deve ser um ';' , caso contrario deve ser uma tabulação.
-			$delimitador = ($tipo = 'text/csv') ? ';' : '\t' ;
+			$delimitador = ($tipo == 'text/csv') ? ';' : "\t" ;
+			
 
 			// abre o arquivo de logs
 			$arquivo = fopen($arquivo['file']['tmp_name'], 'r');
@@ -52,7 +53,7 @@
 
 				 }
 			} catch (Exception $e) {
-				$this->erro = true;
+				throw new Exception("Arquivo inválido", 1);
 			} 
 			fclose($arquivo);
 			if($validos == 0)

@@ -1,11 +1,16 @@
 <?php 
   require_once('./controladores/VoltasController.php');
   use \controladores\VoltasController;
+  $erro = false;
 
+try {
   $voltasController = new VoltasController($_FILES); #instanciação dos arquivos ( como se fosse acesso ao banco )
   $retorno = $voltasController->processaArquivo(); # endpoint chamado para retornar os dados
   $pilotos = $retorno['pilotos'];
   $melhorvolta = $retorno['melhorVolta'];
+} catch (Exception $e) {
+  $erro = true;
+}
 
 ?>
 	<!doctype html>

@@ -34,6 +34,7 @@
 			$arquivo = fopen($arquivo['file']['tmp_name'], 'r');
 
 			$linha = 0;
+			$row = 0;
 			$validos = 0;
 
 			try {

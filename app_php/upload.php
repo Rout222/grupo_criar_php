@@ -2,8 +2,8 @@
   require_once('./controladores/VoltasController.php');
   use \controladores\VoltasController;
 
-  $voltasController = new VoltasController($_FILES);
-  $retorno = $voltasController->processaArquivo();
+  $voltasController = new VoltasController($_FILES); #instanciação dos arquivos ( como se fosse acesso ao banco )
+  $retorno = $voltasController->processaArquivo(); # endpoint chamado para retornar os dados
   $pilotos = $retorno['pilotos'];
   $melhorvolta = $retorno['melhorVolta'];
 
@@ -55,7 +55,7 @@
     						<td><?= $value->voltas; ?></td>
     						<td><?= $value->tempo_total_em_string($value->tempo)?> </td>
     						<td><?= $value->tempo_total_em_string($value->recorde) ?></td>
-    						<td><?= round($value->soma_media / $value->voltas,2) ?></td>
+    						<td><?= round($value->somaMedia / $value->voltas,2) ?></td>
     						<td><?= $value->tempo_total_em_string($value->tempo - $pilotos[0]->tempo)?> </td>
     					</tr>
     				<?php endforeach; ?>

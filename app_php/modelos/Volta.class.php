@@ -14,15 +14,15 @@
 		{
 			$aux = array_map('trim', explode('–', $volta[1]));
 			$this->hora					= $volta[0];
-			$this->nome_piloto			= $aux[1];
-			$this->id_piloto			= $aux[0];
-			$this->n_volta				= $volta[2];
-			$this->tempo_volta			= $this->texto_para_segundos($volta[3]);
-			$this->vel_media			= floatval($volta[4]);
+			$this->nomePiloto			= $aux[1];
+			$this->idPiloto				= $aux[0];
+			$this->volta				= $volta[2];
+			$this->tempoVolta			= $this->textoParaSegundos($volta[3]);
+			$this->velocidadeMedia		= floatval($volta[4]);
 			$this->recorde				= PHP_INT_MAX;
 		}
 
-		function texto_para_segundos($texto)
+		function textoParaSegundos($texto)
 		{
 			$tempo = explode(':', $texto);
 			if(sizeof($tempo) == 1) # caso o cara tenha dado a volta em menos de um minuto, então o tempo dele é do padrao 00.000

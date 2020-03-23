@@ -4,6 +4,5 @@
 
 	interface VoltaServiceInterface
 	{
-			
 		public function getMelhorVolta();
 	}

@@ -17,7 +17,7 @@
 		}
 
 
-		public function get_melhor_volta($aux)
+		public function getMelhorVolta($aux)
 		{
 			// consulta
 			usort($aux, function ($a, $b) { // ordena o array pelo tempo total gasto, considerando se ele terminou a corrida.

@@ -19,7 +19,7 @@
 
 			$this->service = new VoltasServices($arquivo);
 
-			$this->pilotoService = $this->service->pilotosService;
+			$this->pilotoService = $this->service->pilotosService; # pequena adaptação para não implementar o design patter singleton apenas porque não tem banco de dados.
 
 		}
 

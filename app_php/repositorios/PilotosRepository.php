@@ -30,17 +30,17 @@
 			return $this->pilotos;
 		}
 
-		public function processaVolta($id_piloto, $volta)
+		public function processaVolta($idPiloto, $volta)
 		{
-			$piloto = $this->getPiloto($id_piloto);
+			$piloto = $this->findPiloto($idPiloto);
 			$piloto->addVolta();
-			$this->pilotos[$id_piloto]->recorde = ($this->pilotos[$id_piloto]->recorde > $volta->tempo_volta) ? $volta->tempo_volta : $this->pilotos[$id_piloto]->recorde;
-			$this->pilotos[$id_piloto]->tempo				+= $volta->tempo_volta;
-			$this->pilotos[$id_piloto]->soma_media			+= $volta->vel_media;
+			$this->pilotos[$idPiloto]->recorde = ($this->pilotos[$idPiloto]->recorde > $volta->tempoVolta) ? $volta->tempoVolta : $this->pilotos[$idPiloto]->recorde;
+			$this->pilotos[$idPiloto]->tempo				+= $volta->tempoVolta;
+			$this->pilotos[$idPiloto]->somaMedia			+= $volta->velocidadeMedia;
 		}
 
-		public function getPiloto($id_piloto){ # função pra simular get
-			return $this->pilotos[$id_piloto];
+		public function findPiloto($idPiloto){ # função pra simular get
+			return $this->pilotos[$idPiloto];
 		}
 
 		public function savePiloto($piloto){ # função para fingir que é salvo.

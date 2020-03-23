@@ -15,7 +15,7 @@
 			$this->id		 			= $id;
 			$this->voltas		 		= 0;
 			$this->tempo				= 0;
-			$this->soma_media			= 0;
+			$this->somaMedia			= 0;
 			$this->recorde				= $recorde;
 		}
 

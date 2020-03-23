@@ -61,7 +61,7 @@
 
 		public function getMelhorVolta()
 		{
-			return $this->repository->get_melhor_volta($this->pilotosService->getPilotosPorPosicao());
+			return $this->repository->getMelhorVolta($this->pilotosService->getPilotosPorPosicao());
 		}
 	}
 

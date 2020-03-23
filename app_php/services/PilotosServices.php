@@ -26,13 +26,13 @@
             
             foreach ($voltas as $volta) { // processa cada volta
                 
-				if (is_null($this->repository->getPiloto($volta->id_piloto))){ // caso não tenha inserido nenhuma vez o piloto, insere ele com valores zerados
-					$this->repository->addToList($volta->id_piloto, $volta->nome_piloto, $volta->tempo_volta);	
+				if (is_null($this->repository->findPiloto($volta->idPiloto))){ // caso não tenha inserido nenhuma vez o piloto, insere ele com valores zerados
+					$this->repository->addToList($volta->idPiloto, $volta->nomePiloto, $volta->tempoVolta);	
 					
 				}
 
 				// e depois processa os valores da volta
-				$this->repository->processaVolta($volta->id_piloto, $volta);
+				$this->repository->processaVolta($volta->idPiloto, $volta);
 
             }
             

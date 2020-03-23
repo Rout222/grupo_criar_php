@@ -48,7 +48,7 @@
     			</thead>
     			<tbody>
     				<?php foreach($pilotos as $key=>$value): ?>
-    					<tr>
+    					<tr <?= ($key == 0) ? 'class="table-success"' : '' ; ?>>
     						<td><?= $key + 1; ?>º</td>
     						<td><?= $value->id; ?></td>
     						<td><?= $value->nome; ?></td>

@@ -38,7 +38,7 @@
 
 			try {
 				 while ($linha = fgetcsv($arquivo, 0, $delimitador)) {
-					 if ($linha++ == 0) { # se a linha for a 0, monta o cabeçalho
+					 if ($row++ == 0) { # se a linha for a 0, monta o cabeçalho
 						 $cabecalho = array_map('trim', $linha); # tira todos os espaços desnecessários
 						 if(sizeof($cabecalho) != 5)
 							 return false;

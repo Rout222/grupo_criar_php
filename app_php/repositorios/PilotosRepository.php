@@ -40,7 +40,7 @@
 		}
 
 		public function findPiloto($idPiloto){ # função pra simular get
-			return (isset($this->pilotos[$idPiloto])) ? $this->pilotos[$idPiloto] : null ;
+			return $this->pilotos[$idPiloto];
 		}
 
 		public function savePiloto($piloto){ # função para fingir que é salvo.

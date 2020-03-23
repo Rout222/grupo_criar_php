@@ -34,12 +34,12 @@
 			$arquivo = fopen($arquivo['file']['tmp_name'], 'r');
 
 			$linha = 0;
-			$row = 0;
+			$i = 0;
 			$validos = 0;
 
 			try {
 				 while ($linha = fgetcsv($arquivo, 0, $delimitador)) {
-					 if ($row++ == 0) { # se a linha for a 0, monta o cabeçalho
+					 if ($i++ == 0) { # se a linha for a 0, monta o cabeçalho
 						 $cabecalho = array_map('trim', $linha); # tira todos os espaços desnecessários
 						 if(sizeof($cabecalho) != 5)
 							 return false;

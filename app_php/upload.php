@@ -32,7 +32,8 @@ try {
 
 	<body>
 		<script class="jsbin" src="https://ajax.googleapis.com/ajax/repositorios\voltasRepository/jquery/1/jquery.min.js"></script>
-    <div class="card">
+    <div class="container">
+    <div class="card m-5">
       <div class="card-header">
         <a href="index.html" class="btn btn-primary btn-md active" role="button" aria-pressed="true">Voltar</a>
       </div>
@@ -82,7 +83,7 @@ try {
       </div>
 
     </div>
-
+  </div>
 
 
 		<!-- Bootstrap core JavaScript

@@ -4,6 +4,8 @@
   $erro = false;
 
 try {
+  if(empty($_FILES) || empty($_FILES['file']['name'])) throw new Exception("Arquivo inválido", 1);
+    
   $voltasController = new VoltasController($_FILES); #instanciação dos arquivos ( como se fosse acesso ao banco )
   $retorno = $voltasController->processaArquivo(); # endpoint chamado para retornar os dados
   $pilotos = $retorno['pilotos'];
@@ -32,18 +34,36 @@ try {
 
 	<body>
 		<script class="jsbin" src="https://ajax.googleapis.com/ajax/repositorios\voltasRepository/jquery/1/jquery.min.js"></script>
-    <div class="container">
+    <div class="container-fluid">
     <div class="card m-5">
-      <div class="card-header">
-        <a href="index.html" class="btn btn-primary btn-md active" role="button" aria-pressed="true">Voltar</a>
-      </div>
-      <div class="card-body">
+
         
       <?php if ($erro): ?>
-        <div class="alert alert-danger" role="alert">
-          O arquivo é inválido
+        <div class="row m-2">
+          <div class="col-md-3">
+              <a href="index.html" class="btn btn-default btn-md active" role="button" aria-pressed="true">Voltar</a>
+          </div>
+          <br/>
+          <br/>
+          <div class="col-md-12">
+              <div class="alert alert-danger" role="alert">
+                O arquivo é inválido
+              </div>
+          </div>
+          
         </div>
       <?php else: ?>
+        <div class="card-body">
+        <div class="row"> 
+          <div class="col-md-3 col-3">
+              <a href="index.html" class="btn btn-default btn-md active" role="button" aria-pressed="true">Voltar</a>
+          </div>
+          <div class="col-md-9">
+            <div class="alert alert-primary" role="alert">
+              A melhor volta é do piloto <?= $melhorvolta->nome ?> com <?= $melhorvolta->tempo_total_em_string($melhorvolta->recorde)?>
+            </div>    
+          </div>
+        </div>
     		<div class="table-responsive">
         <table class="table">
           <thead>
@@ -74,13 +94,10 @@ try {
           </tbody>
         </table>  
         </div>
-
-    		<div class="alert alert-primary" role="alert">
-    			A melhor volta é do piloto <?= $melhorvolta->nome ?> com <?= $melhorvolta->tempo_total_em_string($melhorvolta->recorde)?>
-    		</div>
+      </div>
     <?php endif; ?>
 
-      </div>
+
 
     </div>
   </div>

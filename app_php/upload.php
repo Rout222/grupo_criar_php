@@ -32,46 +32,56 @@ try {
 
 	<body>
 		<script class="jsbin" src="https://ajax.googleapis.com/ajax/repositorios\voltasRepository/jquery/1/jquery.min.js"></script>
-
+    <div class="card">
+      <div class="card-header">
+        <a href="index.html" class="btn btn-primary btn-md active" role="button" aria-pressed="true">Voltar</a>
+      </div>
+      <div class="card-body">
+        
       <?php if ($erro): ?>
         <div class="alert alert-danger" role="alert">
           O arquivo é inválido
         </div>
       <?php else: ?>
-    		<table class="table">
-    			<thead>
-    				<tr>
-    					<th scope="col">Posição</th>
-    					<th scope="col">Id</th>
-    					<th scope="col">Nome</th>
-    					<th scope="col">Voltas</th>
-    					<th scope="col">Tempo Total </th>
-    					<th scope="col">Melhor Volta </th>
-    					<th scope="col">Velocidade Média</th>
-    					<th scope="col">Chegou após o vencedor</th>
-    				</tr>
-    			</thead>
-    			<tbody>
-    				<?php foreach($pilotos as $key=>$value): ?>
-    					<tr <?= ($key == 0) ? 'class="table-success"' : '' ; ?>>
-    						<td><?= $key + 1; ?>º</td>
-    						<td><?= $value->id; ?></td>
-    						<td><?= $value->nome; ?></td>
-    						<td><?= $value->voltas; ?></td>
-    						<td><?= $value->tempo_total_em_string($value->tempo)?> </td>
-    						<td><?= $value->tempo_total_em_string($value->recorde) ?></td>
-    						<td><?= round($value->somaMedia / $value->voltas,2) ?></td>
-    						<td><?= $value->tempo_total_em_string($value->tempo - $pilotos[0]->tempo)?> </td>
-    					</tr>
-    				<?php endforeach; ?>
-    			</tbody>
-    		</table>
+    		<div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Posição</th>
+              <th scope="col">Id</th>
+              <th scope="col">Nome</th>
+              <th scope="col">Voltas</th>
+              <th scope="col">Tempo Total </th>
+              <th scope="col">Melhor Volta </th>
+              <th scope="col">Velocidade Média</th>
+              <th scope="col">Chegou após o vencedor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach($pilotos as $key=>$value): ?>
+              <tr <?= ($key == 0) ? 'class="table-success"' : '' ; ?>>
+                <td><?= $key + 1; ?>º</td>
+                <td><?= $value->id; ?></td>
+                <td><?= $value->nome; ?></td>
+                <td><?= $value->voltas; ?></td>
+                <td><?= $value->tempo_total_em_string($value->tempo)?> </td>
+                <td><?= $value->tempo_total_em_string($value->recorde) ?></td>
+                <td><?= round($value->somaMedia / $value->voltas,2) ?></td>
+                <td><?= $value->tempo_total_em_string($value->tempo - $pilotos[0]->tempo)?> </td>
+              </tr>
+            <?php endforeach; ?>
+          </tbody>
+        </table>  
+        </div>
 
     		<div class="alert alert-primary" role="alert">
     			A melhor volta é do piloto <?= $melhorvolta->nome ?> com <?= $melhorvolta->tempo_total_em_string($melhorvolta->recorde)?>
     		</div>
     <?php endif; ?>
-		<a href="index.html" class="btn btn-primary btn-md active float-md-right" role="button" aria-pressed="true">Voltar</a>
+
+      </div>
+
+    </div>
 
 
 
